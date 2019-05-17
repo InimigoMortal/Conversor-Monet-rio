@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Conversor Monetário</title>
+	</head>
+	<style>
+		body{
+            background-color:black;
+        }
+		.container{
+            text-align: center; 
+            width: 407px;
+            position: absolute;
+            left: 550px;
+            height: 250px;
+            border: 1px dotted aqua;
+            background-color: greenyellow;
+         
+            
+        
+		}
+		#dollarreal{
+			padding-top: 15px;
+			height: 55px;
+			
+		}
+		#realdollar{
+			display: inline;
+		}
+		#flag{
+			height:38px ;
+			width:55px;
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+
+		<div class="container">
+			<h1>Conversor Monetário</h1>
+			<div id="realdollar">
+				<img id="flag" src="http://www.geonames.org/flags/l/br.gif" >
+				<input type="text" id="real" placeholder="Converter para Dólar"><input type="button" value="Real -> Dólar" onclick="con_real_dollar(
+					document.getElementById('real').value)">
+			</div>
+			<div id="dollarreal">
+				<img id="flag" src="http://www.geonames.org/flags/l/us.gif" height="38px" width="55px">
+				<input type="text" id="dollar" placeholder="Converter para Real"><input type="button" value="Dólar -> Real" onclick="con_dollar_real(
+					document.getElementById('dollar').value)">
+			</div>
+			
+			<div id="total">
+
+			</div>
+		</div>
+		 <script type="text/javascript">
+			
+			const dollar= 4.05;
+			const real = 0.25;
+
+
+
+			function con_real_dollar(real){
+				numero=/[0-9\.]$/
+				if (!numero.exec(real)) {
+					alert("isso não é um número");
+				}else{
+					resultado = real/dollar;
+					if(isNaN(resultado)){
+						alert("isso não é um número");
+					}else{
+						document.getElementById("total").innerHTML=  resultado.toFixed(2) + " Dólares";
+						console.log(real + " R$ = " + resultado.toFixed(2) + " U$");
+					}
+				}
+            }
+            function con_dollar_real(dollar){
+                numero=/[0-9\.]$/
+				if (!numero.exec(dollar)) {
+					alert("isso não é um número");
+				}else{
+					resultado = dollar/real;
+					if(isNaN(resultado)){
+						alert("isso não é um número");
+					}else{
+						document.getElementById("total").innerHTML=  resultado.toFixed(2) + " Reais";
+						console.log(dollar + " U$ = " + resultado.toFixed(2) + " R$");
+					}
+				}
+            }
+		</script>
+	</body>
+
+</html>
